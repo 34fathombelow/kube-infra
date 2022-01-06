@@ -12,3 +12,7 @@ spec:
     path: cert-manager
     repoURL: https://github.com/34fathombelow/kube-infra.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
