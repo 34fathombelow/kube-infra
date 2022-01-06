@@ -9,4 +9,4 @@ spec:
   project: default
   source:
     path: cert-manager
-    repoURL: https://github.com/34fathombelow/kube-infra
+    repoURL: https://github.com/34fathombelow/kube-infra.git
