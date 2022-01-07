@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: argo-cd-issuer
+  namespace: argocd
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: 34fathombelow@protonmail.com
+    privateKeySecretRef:
+      name: letsencrypt
+    solvers:
+    - dns01:
+        cloudflare:
+          email: 34fathombelow@protonmail.com
+          apiTokenSecretRef:
+            name: cloudflare-apikey-secret
+            key: api-token
+      selector: {}
