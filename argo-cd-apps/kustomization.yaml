@@ -4,4 +4,5 @@ resources:
 - base/cert-manager.yaml
 - base/metal-lb.yaml
 - base/ingress-nginx.yaml
+- base/sealedsecrets.yaml
 namespace: argocd
