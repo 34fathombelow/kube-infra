@@ -17,4 +17,7 @@ spec:
         controller:
           extraArgs:
             enable-ssl-passthrough: true
-
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
