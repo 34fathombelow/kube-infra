@@ -5,4 +5,5 @@ resources:
 - base/metal-lb.yaml
 - base/ingress-nginx.yaml
 - base/sealedsecrets.yaml
+- base/argo-cd.yaml
 namespace: argocd
