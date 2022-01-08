@@ -8,10 +8,6 @@ resources:
   - base/argo-cd-issuer.yaml
   - base/cloudflare-api-token-sealed.yaml
 
-
-patchesStrategicMerge:
-  - base/argo-cd-secret-sealed.yaml
-
 patches:
   - patch: |-
       - op: add
