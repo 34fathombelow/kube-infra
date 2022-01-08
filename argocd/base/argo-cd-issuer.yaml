@@ -14,6 +14,6 @@ spec:
         cloudflare:
           email: 34fathombelow@protonmail.com
           apiTokenSecretRef:
-            name: cloudflare-apikey-secret
+            name: cloudflare-api-token-secret
             key: api-token
       selector: {}
