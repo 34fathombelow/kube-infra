@@ -10,14 +10,13 @@ spec:
   project: default
   source:
     repoURL: 'https://kubernetes.github.io/ingress-nginx'
-    targetRevision: 4.0.13
+    targetRevision: 4.0.16
     chart: ingress-nginx
     helm:
       values: |-
         controller:
           extraArgs:
             enable-ssl-passthrough: true
-        controller:
           service:
             loadBalancerIP: 192.168.2.240      
   syncPolicy:
