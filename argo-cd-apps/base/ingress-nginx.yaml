@@ -17,6 +17,9 @@ spec:
         controller:
           extraArgs:
             enable-ssl-passthrough: true
+        controller:
+          service:
+            loadBalancerIP: 192.168.2.240      
   syncPolicy:
     automated:
       prune: true
