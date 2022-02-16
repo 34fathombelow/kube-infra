@@ -6,5 +6,5 @@ resources:
 - base/ingress-nginx.yaml
 - base/sealedsecrets.yaml
 - base/argocd.yaml
-- base/nfs-subdirexternalprovisioner.yaml
+- base/nfs-subdir-external-provisioner.yaml
 namespace: argocd
