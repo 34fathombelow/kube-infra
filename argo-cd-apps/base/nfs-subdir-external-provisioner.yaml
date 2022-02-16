@@ -1,24 +1,30 @@
-project: default
-source:
-  repoURL: 'https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner'
-  targetRevision: 4.0.16
-  helm:
-    valueFiles:
-      - values.yaml
-    parameters:
-      - name: nfs.server
-        value: seahorse
-      - name: nfs.path
-        value: /srv/nfs/storage/kube-data
-      - name: storageClass.defaultClass
-        value: 'true'
-      - name: storageClass.provisionerName
-        value: nfs-seahorse
-  chart: nfs-subdir-external-provisioner
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: sys
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-subdir-external-provisioner
+  namespace: argocd
+spec:
+  destination:
+    ⦙ server: 'https://kubernetes.default.svc'
+    ⦙ namespace: sys
+  project: default
+  source:
+    repoURL: 'https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner'
+    targetRevision: 4.0.16
+    chart: nfs-subdir-external-provisioner
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: nfs.server
+          value: seahorse
+        - name: nfs.path
+          value: /srv/nfs/storage/kube-data
+        - name: storageClass.defaultClass
+          value: 'true'
+        - name: storageClass.provisionerName
+          value: nfs-seahorse
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
