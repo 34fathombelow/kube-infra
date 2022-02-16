@@ -18,5 +18,7 @@ source:
 destination:
   server: 'https://kubernetes.default.svc'
   namespace: sys
-syncPolicy: {}
-
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
