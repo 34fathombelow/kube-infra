@@ -24,6 +24,14 @@ spec:
           value: 'true'
         - name: storageClass.provisionerName
           value: nfs-seahorse
+      values: |-
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
   syncPolicy:
     automated:
       prune: true
