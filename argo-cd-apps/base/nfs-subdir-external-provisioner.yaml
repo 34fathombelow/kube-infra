@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    ⦙ server: 'https://kubernetes.default.svc'
-    ⦙ namespace: sys
+    server: 'https://kubernetes.default.svc'
+    namespace: sys
   project: default
   source:
     repoURL: 'https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner'
