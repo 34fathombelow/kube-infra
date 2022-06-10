@@ -3,20 +3,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
 resources:
-  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.0-rc5/manifests/install.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.0/manifests/install.yaml
   - base/argo-cd-ingress.yaml
   - base/argo-cd-issuer.yaml
   - base/cloudflare-api-token-sealed.yaml
 
-# patch needed till bug https://github.com/argoproj/argo-cd/pull/8400 is resolved
-patches:
-  - patch: |-
-      - op: add
-        path: /spec/template/spec/nodeSelector
-        value: {"kubernetes.io/arch": "amd64"}
-    target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: argocd-applicationset-controller
 
