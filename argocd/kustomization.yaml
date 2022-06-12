@@ -15,7 +15,7 @@ patches:
       path: /spec/template/spec/containers/0/volumeMounts/-
       value:
         name: config-volume
-        mountPath: /home/argocd/.ssh/config
+        mountPath: /home/argocd/.ssh
     - op: add
       path: /spec/template/spec/volumes/-
       value:
@@ -31,7 +31,7 @@ patches:
       path: /spec/template/spec/containers/0/volumeMounts/-
       value:
         name: config-volume
-        mountPath: /home/argocd/.ssh/config
+        mountPath: /home/argocd/.ssh
     - op: add
       path: /spec/template/spec/volumes/-
       value:
