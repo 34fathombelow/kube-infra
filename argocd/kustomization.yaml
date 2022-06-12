@@ -3,9 +3,44 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
 resources:
+  - base/repo-server-ssh-cm
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.0/manifests/install.yaml
   - base/argo-cd-ingress.yaml
   - base/argo-cd-issuer.yaml
   - base/cloudflare-api-token-sealed.yaml
 
+patches:
+- patch: |-
+    - op: add
+      path: /spec/template/spec/containers/0/volumeMounts/-
+      value:
+        name: config-volume
+        mountPath: /home/argocd/.ssh/config
+        subPath: ssh_config
+    - op: add
+      path: /spec/template/spec/volumes/-
+      value:
+        name: config-volume
+        configMap:
+          name: repo-server-ssh-cm
+  target:
+    kind: Deployment
+    name: argocd-repo-server
+
+- patch: |-
+    - op: add
+      path: /spec/template/spec/containers/0/volumeMounts/-
+      value:
+        name: config-volume
+        mountPath: /home/argocd/.ssh/config
+        subPath: ssh_config
+    - op: add
+      path: /spec/template/spec/volumes/-
+      value:
+        name: config-volume
+        configMap:
+          name: repo-server-ssh-cm
+  target:
+    kind: Deployment
+    name: argocd-applicationset-controller
 

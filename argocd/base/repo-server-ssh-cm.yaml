@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: repo-server-ssh-cm
+  namespace: argocd
+data:
+  config: |
+    HOST vs-ssh.visualstudio.com
+      HostkeyAlgorithms +ssh-rsa
+      PubkeyAcceptedAlgorithms +ssh-rsa
